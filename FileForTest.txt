@@ -18,7 +18,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- *******************************************************************************/
+ ******************************************************************************/
 
 package org.pentaho.di.core.plugins;
 
@@ -46,10 +46,13 @@ public class StepPluginType extends BasePluginType implements PluginTypeInterfac
     super( Step.class, "STEP", "Step" );
     String s1 = "*hello /* xxx */ a";
     String s2 = ""; // null pppppppp
+    String s3 = "idsfjid\r\n  ''' \t \s \"+-\\\\\"";
     char c1 = '*';
     char c2 = '/';
     char c3 = '\'';
     char c4 = '"';
+    char c5 = '\"';
+    char c6 = '\\';
   }
 
   protected StepPluginType( Class<? extends Annotation> pluginType, String id, String name ) {

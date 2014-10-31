@@ -39,6 +39,10 @@ public enum State implements IState{
             if(c == '\'') {
                 sc.setState(State.CodeHandleState);
                 System.out.print(c);
+            } else if(c == '\\') {
+                sc.setPrevState(State.CharHandleState);
+                sc.setState(State.EscapeCharacterHandleState);
+                System.out.print(c);
             } else {
                 System.out.print(c);
             }
@@ -51,9 +55,21 @@ public enum State implements IState{
             if(c == '"') {
                 sc.setState(State.CodeHandleState);
                 System.out.print(c);
+            } else if(c == '\\') {
+                sc.setPrevState(State.StringHandleState);
+                sc.setState(State.EscapeCharacterHandleState);
+                System.out.print(c);
             } else {
                 System.out.print(c);
             }
+        }
+    },
+
+    EscapeCharacterHandleState() {
+        @Override
+        public void changeState(char c, StateContext sc) {
+            System.out.print(c);
+            sc.setState(sc.getPrevState());
         }
     },
 
@@ -110,5 +126,14 @@ public enum State implements IState{
                 sc.setState(State.CommentHandleState);
             }
         }
+    };
+
+    State prevState;
+    State () {
     }
+
+    State(State prevState) {
+        this.prevState = prevState;
+    }
+
 }

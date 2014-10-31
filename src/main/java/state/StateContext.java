@@ -8,8 +8,14 @@ import state.State;
 public class StateContext {
     private State state = State.InitState;
 
-    public State getState() {
-        return state;
+    private State prevState = State.InitState;
+
+    public State getPrevState() {
+        return prevState;
+    }
+
+    public void setPrevState(State prevState) {
+        this.prevState = prevState;
     }
 
     public void setState(State state) {

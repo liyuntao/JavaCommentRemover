@@ -13,17 +13,10 @@ Done:
 
 * remove multi-line comments like  /* xxx */
 * remove single-line comments like // xxx
-* symbol such as /\* xxx\*/ or // in String would not be affected by the tool.
-* state change will not affected by special char which could trigger state change, such as '/' '*' '"'
+* symbol which could trigger the state shift will not has any effect in char and String. Such as String s = "abc/*\*part of Str\*/def"
+* escape character in char or String will not affect the judgement of comments.
 <br></br>
 * 去除/* xxx */ 形式的多行注释
 * 去除以//开头的单行注释 
-* 字符串中的/\* xxx\*/ 不会受到影响
-* 状态转移不受char中的相关触发字符影响，比如'/' '*' '"'
-
-TODO:
-
-
-* implements the case of char handling such as '/' '*' '"'
-<br></br>
-* 加入处理转义字符的情况
+* char, String中可触发状态转换的特殊字符/\* xxx\*/ 不会影响状态转移 如 String s = "abc/*\*part of Str\*/def"
+* char, String中的转义字符与被转义字符不会影响注释的判断与去除 如 \' \" \\
