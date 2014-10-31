@@ -22,5 +22,7 @@ Done:
 TODO:
 
 * implements the case of handling escape characters
+* implements the case of char handling such as '/' '*' '"'
 <br></br>
 * 加入处理转义字符的情况
+* 加入处理char的state 比如'/' '*' '"'
