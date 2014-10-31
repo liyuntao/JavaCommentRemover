@@ -7,7 +7,7 @@ JavaCommentRemover is a simple tool which can remove all comments in .java file.
 
 JavaCommentRemover是一个去除Java文件中所有注释的工具。使用简单的有限状态机(Finite State Machine)实现。
 
-![StateChart](http://github.com/liyuntao/JavaCommentRemover/raw/master/StateChart.png)  
+![StateChart](https://github.com/liyuntao/JavaCommentRemover/raw/master/StateChart.png)
 
 Done:
 
