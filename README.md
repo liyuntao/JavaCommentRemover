@@ -11,14 +11,14 @@ Done:
 
 * remove multi-line comments like  /* xxx */
 * remove single-line comments like // xxx
-* symbol such as /*xxx*/ or // in String would not be affected by the tool.
-
+* symbol such as /\* xxx\*/ or // in String would not be affected by the tool.
+<br></br>
 * 去除/* xxx */ 形式的多行注释
 * 去除以//开头的单行注释 
-* 字符串中的/* xxx*/ 不会受到影响
+* 字符串中的/\* xxx\*/ 不会受到影响
 
 TODO:
 
 * implements the case of handling escape characters
-
+<br></br>
 * 加入处理转义字符的情况
