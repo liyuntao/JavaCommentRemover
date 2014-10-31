@@ -13,10 +13,16 @@ Done:
 
 * remove multi-line comments like  /* xxx */
 * remove single-line comments like // xxx
-* symbol which could trigger the state shift will not has any effect in char and String. Such as String s = "abc/*\*part of Str\*/def"
-* escape character in char or String will not affect the judgement of comments.
+* symbol which could trigger the state shift will not has any effect in char and String. Such as String s = "abc/*\*part of Str*/def"
+* escape character in char or String will not affect the judgement of comments. Such as \" or \\\\
 <br></br>
 * 去除/* xxx */ 形式的多行注释
 * 去除以//开头的单行注释 
-* char, String中可触发状态转换的特殊字符/\* xxx\*/ 不会影响状态转移 如 String s = "abc/*\*part of Str\*/def"
-* char, String中的转义字符与被转义字符不会影响注释的判断与去除 如 \' \" \\
+* char, String中可触发状态转换的特殊字符/\* xxx\*/ 不会影响状态转移 如 String s = "abc/*\*part of Str */def"
+* char, String中的转义字符与被转义字符不会影响注释的判断与去除 如  \" or \\\\
+
+
+TODO:
+
+* adjust the f*king stupid StateChart.png
+* 把状态转移图美化一下
