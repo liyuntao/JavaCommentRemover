@@ -1,7 +1,6 @@
-package FSM;
+package state;
 
-
-import FSM.state.State;
+import state.State;
 
 /**
  * Created by liyuntao on 2014/10/30.

@@ -1,7 +1,4 @@
-package FSM.state;
-
-
-import FSM.StateContext;
+package state;
 
 /**
  * Created by liyuntao on 2014/10/30.
