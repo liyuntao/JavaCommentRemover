@@ -19,6 +19,6 @@ public class CommentRemoveMain {
     }
 
     public static void main(String[] args) throws IOException {
-        removeComment("E:/DD.java");
+        removeComment("/Users/amour/IdeaProjects/JavaCommentRemover/FileForTest.txt");
     }
 }

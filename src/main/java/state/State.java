@@ -104,6 +104,8 @@ public enum State implements IState{
         public void changeState(char c, StateContext sc) {
             if(c == '/') {
                 sc.setState(State.CodeHandleState);
+            } else if(c == '*') {
+                // do nothing
             } else {
                 sc.setState(State.CommentHandleState);
             }
