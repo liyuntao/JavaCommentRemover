@@ -25,7 +25,10 @@ public enum State implements IState{
             if(c == '/') {
                 sc.setState(State.WaitAsteriskOrSlash);
             } else if(c == '"') {
-                sc.setState(State.QuoteHandleState);
+                sc.setState(State.StringHandleState);
+                System.out.print(c);
+            } else if(c == '\'') {
+                sc.setState(State.CharHandleState);
                 System.out.print(c);
             } else {
                 System.out.print(c);
@@ -33,7 +36,19 @@ public enum State implements IState{
         }
     },
 
-    QuoteHandleState {
+    CharHandleState {
+        @Override
+        public void changeState(char c, StateContext sc) {
+            if(c == '\'') {
+                sc.setState(State.CodeHandleState);
+                System.out.print(c);
+            } else {
+                System.out.print(c);
+            }
+        }
+    },
+
+    StringHandleState {
         @Override
         public void changeState(char c, StateContext sc) {
             if(c == '"') {
