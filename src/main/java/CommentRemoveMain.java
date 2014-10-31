@@ -13,8 +13,8 @@ public class CommentRemoveMain {
         FileReader fr = new FileReader(filePath);
         int ch = 0;
         StateContext sc = new StateContext();
-        while((ch = fr.read())!=-1 ) {
-            sc.changeState((char)ch);
+        while ((ch = fr.read()) != -1) {
+            sc.changeState((char) ch);
         }
     }
 

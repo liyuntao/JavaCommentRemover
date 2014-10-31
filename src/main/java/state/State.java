@@ -3,11 +3,11 @@ package state;
 /**
  * Created by liyuntao on 2014/10/30.
  */
-public enum State implements IState{
+public enum State implements IState {
     InitState {
         @Override
         public void changeState(char c, StateContext sc) {
-            if(c == '/') {
+            if (c == '/') {
                 sc.setState(State.WaitAsteriskOrSlash);
             } else {
                 System.out.print(c);
@@ -19,12 +19,12 @@ public enum State implements IState{
     CodeHandleState {
         @Override
         public void changeState(char c, StateContext sc) {
-            if(c == '/') {
+            if (c == '/') {
                 sc.setState(State.WaitAsteriskOrSlash);
-            } else if(c == '"') {
+            } else if (c == '"') {
                 sc.setState(State.StringHandleState);
                 System.out.print(c);
-            } else if(c == '\'') {
+            } else if (c == '\'') {
                 sc.setState(State.CharHandleState);
                 System.out.print(c);
             } else {
@@ -36,10 +36,10 @@ public enum State implements IState{
     CharHandleState {
         @Override
         public void changeState(char c, StateContext sc) {
-            if(c == '\'') {
+            if (c == '\'') {
                 sc.setState(State.CodeHandleState);
                 System.out.print(c);
-            } else if(c == '\\') {
+            } else if (c == '\\') {
                 sc.setPrevState(State.CharHandleState);
                 sc.setState(State.EscapeCharacterHandleState);
                 System.out.print(c);
@@ -52,10 +52,10 @@ public enum State implements IState{
     StringHandleState {
         @Override
         public void changeState(char c, StateContext sc) {
-            if(c == '"') {
+            if (c == '"') {
                 sc.setState(State.CodeHandleState);
                 System.out.print(c);
-            } else if(c == '\\') {
+            } else if (c == '\\') {
                 sc.setPrevState(State.StringHandleState);
                 sc.setState(State.EscapeCharacterHandleState);
                 System.out.print(c);
@@ -76,7 +76,7 @@ public enum State implements IState{
     DoubleSlashHandleState {
         @Override
         public void changeState(char c, StateContext sc) {
-            if(c != '\n') {
+            if (c != '\n') {
                 // do nothing
             } else {
                 System.out.print(c);
@@ -93,7 +93,7 @@ public enum State implements IState{
     WaitAsteriskOrSlash {
         @Override
         public void changeState(char c, StateContext sc) {
-            if(c == '*') {
+            if (c == '*') {
                 sc.setState(State.CommentHandleState);
             } else if (c == '/') {
                 sc.setState(State.DoubleSlashHandleState);
@@ -107,7 +107,7 @@ public enum State implements IState{
     CommentHandleState {
         @Override
         public void changeState(char c, StateContext sc) {
-            if(c == '*') {
+            if (c == '*') {
                 sc.setState(State.WaitSlashState);
             } else {
                 // do nothing
@@ -118,9 +118,9 @@ public enum State implements IState{
     WaitSlashState {
         @Override
         public void changeState(char c, StateContext sc) {
-            if(c == '/') {
+            if (c == '/') {
                 sc.setState(State.CodeHandleState);
-            } else if(c == '*') {
+            } else if (c == '*') {
                 // do nothing
             } else {
                 sc.setState(State.CommentHandleState);
@@ -129,7 +129,8 @@ public enum State implements IState{
     };
 
     State prevState;
-    State () {
+
+    State() {
     }
 
     State(State prevState) {
