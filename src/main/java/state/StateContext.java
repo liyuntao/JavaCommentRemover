@@ -2,6 +2,8 @@ package state;
 
 import state.State;
 
+import java.io.StringWriter;
+
 /**
  * Created by liyuntao on 2014/10/30.
  */
@@ -22,7 +24,7 @@ public class StateContext {
         this.state = state;
     }
 
-    public void changeState(char c) {
-        state.changeState(c, this);
+    public void changeState(char c, StringWriter writer) {
+        state.changeState(c, writer, this);
     }
 }
